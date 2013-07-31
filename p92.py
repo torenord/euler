@@ -14,16 +14,15 @@ def f(n):
     return res
 
 def g1(n):
-    return n if n == 1 or n == 89 else g2(f(n))
+    return (n == 89) if n == 1 or n == 89 else g2(f(n))
 
 @lru_cache(maxsize=None)
 def g2(n):
-    return n if n == 1 or n == 89 else g2(f(n))
+    return (n == 89) if n == 1 or n == 89 else g2(f(n))
 
 def h(n):
     p = Pool(cpu_count())
-    lst = p.map(g1, range(1, n))
-    return len([1 for i in lst if i == 89])
+    return sum(p.map(g1, range(1, n)))
 
 if __name__ == '__main__':
     try:
