@@ -5,7 +5,12 @@ import sys
 from functools import lru_cache
 
 def f(n):
-    return sum([int(c)*int(c) for c in str(n)])
+    res = 0
+    while n:
+        m = n % 10
+        n = n // 10
+        res = res + m * m
+    return res
 
 @lru_cache(maxsize=None)
 def g(n):
