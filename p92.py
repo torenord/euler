@@ -4,7 +4,6 @@
 import sys
 from functools import lru_cache
 
-@lru_cache(maxsize=None)
 def f(n):
     return sum([int(c)*int(c) for c in str(n)])
 
