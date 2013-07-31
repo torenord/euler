@@ -9,7 +9,7 @@ def f(n):
     while n:
         m = n % 10
         n = n // 10
-        res = res + m * m
+        res += m * m
     return res
 
 def g1(n):
