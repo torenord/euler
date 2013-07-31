@@ -12,12 +12,15 @@ def f(n):
         res = res + m * m
     return res
 
+def g1(n):
+    return n if n == 1 or n == 89 else g2(f(n))
+
 @lru_cache(maxsize=None)
-def g(n):
-    return n if n == 1 or n == 89 else g(f(n))
+def g2(n):
+    return n if n == 1 or n == 89 else g2(f(n))
 
 def h(n):
-    return sum([1 for i in range(1, n) if g(i) == 89])
+    return sum([1 for i in range(1, n) if g1(i) == 89])
 
 if __name__ == '__main__':
     try:
