@@ -3,6 +3,7 @@
 
 import sys
 from functools import lru_cache
+from multiprocessing import Pool, cpu_count
 
 def f(n):
     res = 0
@@ -20,7 +21,9 @@ def g2(n):
     return n if n == 1 or n == 89 else g2(f(n))
 
 def h(n):
-    return sum([1 for i in range(1, n) if g1(i) == 89])
+	p = Pool(cpu_count())
+	lst = p.map(g1, range(1, n))
+	return len([1 for i in lst if i == 89])
 
 if __name__ == '__main__':
     try:
