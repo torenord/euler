@@ -12,16 +12,16 @@ def f(n):
         res += m * m
     return res
 
-def g1(n):
-    return (n == 89) if n == 1 or n == 89 else g2(f(n))
+def g0(n):
+    return g(f(n))
 
 @lru_cache(maxsize=None)
-def g2(n):
-    return (n == 89) if n == 1 or n == 89 else g2(f(n))
+def g(n):
+    return n == 89 if n == 1 or n == 89 else g(f(n))
 
 def h(n):
     p = Pool(cpu_count())
-    return sum(p.map(g1, range(1, n)))
+    return sum(p.map(g0, range(1, n)))
 
 if __name__ == '__main__':
     try:
