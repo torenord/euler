@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import sys
 from functools import lru_cache
 from multiprocessing import Pool, cpu_count
 
@@ -24,6 +23,8 @@ def h(n):
     return sum(p.map(g0, range(1, n)))
 
 if __name__ == '__main__':
+    import sys
+
     try:
         n = int(sys.argv[1])
     except:
