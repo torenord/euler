@@ -59,6 +59,10 @@ class Euler(unittest.TestCase):
         from problem18 import problem18
         self.assertEqual(problem18(), 1074)
 
+    def test_problem21(self):
+        from problem21 import problem21
+        self.assertEqual(problem21(), 31626)
+
     def test_problem25(self):
         from problem25 import problem25
         self.assertEqual(problem25(), 4782)
