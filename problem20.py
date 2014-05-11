@@ -9,12 +9,10 @@
 
 # Find the sum of the digits in the number 100!
 
-def factorial(n):
-    if n < 1: return 1
-    else: return n * factorial(n-1)
+from math import factorial
 
 def problem20():
-    return sum([int(d) for d in str(factorial(100))])
+    return sum([int(digit) for digit in str(factorial(100))])
 
 if __name__ == '__main__':
     print(problem20())
